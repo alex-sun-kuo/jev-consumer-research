@@ -1,0 +1,259 @@
+{
+  "study_id": "fictional-drinkware-pilot",
+  "revision": "v2-rich-profiles",
+  "provenance": "All profiles, stimuli, and mock outputs are invented teaching examples, not customer research.",
+  "profiles": [
+    {
+      "id": "p1",
+      "demographics": {
+        "age_band": "25-34",
+        "gender": "woman",
+        "profession": "Registered nurse",
+        "industry": "Healthcare",
+        "employment_status": "Full-time",
+        "work_setting": "On-site",
+        "income_level": "$75,000–$99,999",
+        "education": "Bachelor degree",
+        "race": "Asian",
+        "ethnicity": "Filipino",
+        "city": "Sacramento",
+        "region": "California",
+        "urbanicity": "Suburban",
+        "household_size": 2,
+        "children_in_household": 0,
+        "marital_status": "Partnered",
+        "language_at_home": "English and Tagalog",
+        "country": "US",
+        "income_basis": "Annual individual gross income in USD"
+      },
+      "context": {
+        "need": "A leakproof bottle for commuting",
+        "budget_usd": 35,
+        "priority": "leakproof",
+        "purchase_stage": "actively comparing",
+        "evidence_source": "synthetic assumption",
+        "current_alternative": "A reusable bottle whose lid occasionally leaks",
+        "usage_frequency": "Daily",
+        "time_available": "Rushed",
+        "shopping_device": "Mobile",
+        "purchase_channel": "Online",
+        "replacement_trigger": "A demonstrated leakproof closure within the $35 budget",
+        "decision_criteria": [
+          "Leak prevention",
+          "Fits an existing bag",
+          "Total delivered price"
+        ],
+        "proof_required": "A lid demonstration and clear return terms",
+        "delivery_constraint": "Needs a replacement within one week"
+      },
+      "provenance": {
+        "kind": "synthetic_assumption",
+        "source": "Hand-authored teaching scenario; demographics and shopping context are explicit assumptions.",
+        "scope": "Every supplied demographic and context field is invented, not inferred from another field",
+        "unknown_fields": []
+      }
+    },
+    {
+      "id": "p2",
+      "demographics": {
+        "age_band": "25-34",
+        "gender": "man",
+        "profession": "Graphic designer",
+        "industry": "Design services",
+        "employment_status": "Self-employed",
+        "work_setting": "Remote",
+        "income_level": "$50,000–$74,999",
+        "education": "Bachelor degree",
+        "race": "White",
+        "ethnicity": "Mexican American",
+        "city": "Chicago",
+        "region": "Illinois",
+        "urbanicity": "Urban",
+        "household_size": 1,
+        "children_in_household": 0,
+        "marital_status": "Single",
+        "language_at_home": "English and Spanish",
+        "country": "US",
+        "income_basis": "Annual individual gross income in USD"
+      },
+      "context": {
+        "need": "An easy-to-clean bottle for the gym",
+        "budget_usd": 50,
+        "priority": "cleaning",
+        "purchase_stage": "browsing",
+        "evidence_source": "synthetic assumption",
+        "current_alternative": "A reusable bottle that needs hand washing",
+        "usage_frequency": "Three gym visits per week",
+        "time_available": "Leisurely",
+        "shopping_device": "Desktop",
+        "purchase_channel": "Online",
+        "replacement_trigger": "Dishwasher-safe cleaning with dimensions that fit a gym bag",
+        "decision_criteria": [
+          "Cleaning effort",
+          "Capacity",
+          "Durability"
+        ],
+        "proof_required": "Care instructions and customer photos",
+        "delivery_constraint": "No urgent delivery deadline"
+      },
+      "provenance": {
+        "kind": "synthetic_assumption",
+        "source": "Hand-authored teaching scenario; demographics and shopping context are explicit assumptions.",
+        "scope": "Every supplied demographic and context field is invented, not inferred from another field",
+        "unknown_fields": []
+      }
+    },
+    {
+      "id": "p3",
+      "demographics": {
+        "age_band": "45-54",
+        "gender": "woman",
+        "profession": "Public librarian",
+        "industry": "Public services",
+        "employment_status": "Full-time",
+        "work_setting": "On-site",
+        "income_level": "$75,000–$99,999",
+        "education": "Master degree",
+        "race": "Black",
+        "ethnicity": "African American",
+        "city": "Atlanta",
+        "region": "Georgia",
+        "urbanicity": "Suburban",
+        "household_size": 4,
+        "children_in_household": 2,
+        "marital_status": "Married",
+        "language_at_home": "English",
+        "country": "US",
+        "income_basis": "Annual individual gross income in USD"
+      },
+      "context": {
+        "need": "An easy-to-clean bottle for the gym",
+        "budget_usd": 50,
+        "priority": "cleaning",
+        "purchase_stage": "browsing",
+        "evidence_source": "synthetic assumption",
+        "current_alternative": "A narrow-neck bottle that is difficult to clean",
+        "usage_frequency": "Three gym visits per week",
+        "time_available": "Rushed",
+        "shopping_device": "Mobile",
+        "purchase_channel": "Online",
+        "replacement_trigger": "Verified easy cleaning with an acceptable total price",
+        "decision_criteria": [
+          "Cleaning effort",
+          "Simple returns",
+          "Durability"
+        ],
+        "proof_required": "Care instructions and a clear returns policy",
+        "delivery_constraint": "No urgent delivery deadline"
+      },
+      "provenance": {
+        "kind": "synthetic_assumption",
+        "source": "Hand-authored teaching scenario; demographics and shopping context are explicit assumptions.",
+        "scope": "Every supplied demographic and context field is invented, not inferred from another field",
+        "unknown_fields": []
+      }
+    },
+    {
+      "id": "p4",
+      "demographics": {
+        "age_band": "45-54",
+        "gender": "man",
+        "profession": "Electrical contractor",
+        "industry": "Construction",
+        "employment_status": "Self-employed",
+        "work_setting": "Field-based",
+        "income_level": "$100,000–$149,999",
+        "education": "Vocational qualification",
+        "race": "White",
+        "ethnicity": null,
+        "city": "Spokane",
+        "region": "Washington",
+        "urbanicity": "Rural",
+        "household_size": 2,
+        "children_in_household": 0,
+        "marital_status": "Married",
+        "language_at_home": "English",
+        "country": "US",
+        "income_basis": "Annual individual gross income in USD"
+      },
+      "context": {
+        "need": "A leakproof bottle for commuting",
+        "budget_usd": 35,
+        "priority": "leakproof",
+        "purchase_stage": "actively comparing",
+        "evidence_source": "synthetic assumption",
+        "current_alternative": "A bottle that leaks when transported in a bag",
+        "usage_frequency": "Daily",
+        "time_available": "Moderate",
+        "shopping_device": "Mobile",
+        "purchase_channel": "Online",
+        "replacement_trigger": "A leakproof replacement below the self-imposed $35 spending cap",
+        "decision_criteria": [
+          "Leak prevention",
+          "Total delivered price",
+          "Durability"
+        ],
+        "proof_required": "A closure demonstration and warranty details",
+        "delivery_constraint": "Needs a replacement within two weeks"
+      },
+      "provenance": {
+        "kind": "synthetic_assumption",
+        "source": "Hand-authored teaching scenario; demographics and shopping context are explicit assumptions.",
+        "scope": "Every supplied demographic and context field is invented, not inferred from another field",
+        "unknown_fields": [
+          "ethnicity"
+        ]
+      }
+    }
+  ],
+  "stimuli": [
+    {
+      "id": "ad_a",
+      "kind": "ad",
+      "variant": "A",
+      "text": "Meet Loop Bottle. Premium hydration, anywhere. $39. Shop now.",
+      "exposure": "Cold social feed, five-second exposure",
+      "engage_means": "Click the ad during this impression"
+    },
+    {
+      "id": "ad_b",
+      "kind": "ad",
+      "variant": "B",
+      "text": "Meet Loop Bottle. Leakproof lid and dishwasher-safe body. $39. Shop now.",
+      "exposure": "Cold social feed, five-second exposure",
+      "engage_means": "Click the ad during this impression"
+    },
+    {
+      "id": "product_a",
+      "kind": "product",
+      "variant": "A",
+      "text": "Loop Bottle, $39. Premium stainless steel. 24 oz. Add to cart.",
+      "exposure": "Product listing viewed for 30 seconds",
+      "engage_means": "Add to cart during this visit"
+    },
+    {
+      "id": "product_b",
+      "kind": "product",
+      "variant": "B",
+      "text": "Loop Bottle, $39. 24 oz stainless steel. Leakproof lid, dishwasher-safe body. Add to cart.",
+      "exposure": "Product listing viewed for 30 seconds",
+      "engage_means": "Add to cart during this visit"
+    },
+    {
+      "id": "website_a",
+      "kind": "website",
+      "variant": "A",
+      "text": "Top: Loop Bottle, premium hydration. Price $39. Below fold: stainless steel, 24 oz. CTA: Start checkout. Shipping cost not shown.",
+      "exposure": "Text-only page snapshot; no visual layout or interaction observed",
+      "engage_means": "Start checkout during this visit"
+    },
+    {
+      "id": "website_b",
+      "kind": "website",
+      "variant": "B",
+      "text": "Top: Loop Bottle, leakproof and dishwasher-safe, $39. Below fold: stainless steel, 24 oz. CTA: Start checkout. Shipping cost not shown.",
+      "exposure": "Text-only page snapshot; no visual layout or interaction observed",
+      "engage_means": "Start checkout during this visit"
+    }
+  ]
+}

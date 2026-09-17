@@ -1,0 +1,16 @@
+{
+  "id_field": "respondent_id",
+  "demographics": {
+    "profession": "job",
+    "income_level": "yearly_income_band",
+    "ethnicity": "background"
+  },
+  "context": {
+    "budget_usd": "product_budget",
+    "need": "main_need",
+    "purchase_stage": "stage",
+    "shopping_device": "device",
+    "shopping_style": "shopping_style"
+  },
+  "types": {"context.budget_usd": "float"}
+}

@@ -1,0 +1,29 @@
+{
+  "study_id": "drinkware-interview-demo",
+  "revision": "v1",
+  "provenance": "INVENTED interview transcripts for demonstration; not real participant data.",
+  "research_question": "What keeps participants from trying the $39 Loop Bottle, and what should we test next?",
+  "behavior_target": "The participant's next shopping action after reviewing this bottle offer",
+  "interviews": [
+    {
+      "id": "group_01",
+      "turns": [
+        {"id": "t1", "speaker": "moderator", "role": "moderator", "text": "The Loop Bottle costs $39 and claims a leakproof lid and dishwasher-safe body. What is your reaction?"},
+        {"id": "t2", "speaker": "p1", "role": "participant", "text": "I like the leakproof idea, but $39 is too much. My limit for a bottle is $30."},
+        {"id": "t3", "speaker": "p2", "role": "participant", "text": "Easy cleaning sounds useful. I would need to see the care instructions and a leak test before deciding."},
+        {"id": "t4", "speaker": "moderator", "role": "moderator", "text": "What would you do next?"},
+        {"id": "t5", "speaker": "p1", "role": "participant", "text": "I would wait for a lower price. I am not buying it now."},
+        {"id": "t6", "speaker": "p2", "role": "participant", "text": "I would look for a demonstration and check the cleaning instructions first."}
+      ]
+    },
+    {
+      "id": "interview_02",
+      "turns": [
+        {"id": "t1", "speaker": "moderator", "role": "moderator", "text": "Would you consider the $39 Loop Bottle with a leakproof lid and dishwasher-safe body?"},
+        {"id": "t2", "speaker": "p3", "role": "participant", "text": "I bought a reusable bottle last month and it works well. I do not need another one."},
+        {"id": "t3", "speaker": "moderator", "role": "moderator", "text": "Would more information change your decision?"},
+        {"id": "t4", "speaker": "p3", "role": "participant", "text": "No, I would pass on this offer. I am happy with what I already have."}
+      ]
+    }
+  ]
+}

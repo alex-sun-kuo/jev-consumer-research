@@ -1,0 +1,11 @@
+{
+  "provenance": "INVENTED NUMBERS: schema and metric demonstration only, not observed human data",
+  "event": "Click during a single ad impression",
+  "baseline_from_training": 0.25,
+  "rows": [
+    {"id": "demo1", "prediction": 0.20, "observed": 0},
+    {"id": "demo2", "prediction": 0.35, "observed": 1},
+    {"id": "demo3", "prediction": 0.15, "observed": 0},
+    {"id": "demo4", "prediction": 0.50, "observed": 0}
+  ]
+}
