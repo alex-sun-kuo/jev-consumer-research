@@ -77,8 +77,9 @@ Declare CSV numeric types explicitly; this recipe requires `context.budget_usd`.
 Python dictionaries are also supported through `adapt_personas()`.
 
 For interviews, use the structure in [interviews_example.json](data/interviews_example.json)
-or paste speaker-labeled text into the notebook. Each participant is evaluated
-separately. Edit `RESEARCH_ACTIONS` to change the menu of proposed next steps.
+or paste speaker-labeled text into the notebook. Interviews are one-on-one: each
+transcript has a single participant plus a moderator. Edit `RESEARCH_ACTIONS`
+to change the menu of proposed next steps.
 
 ## Run from the command line
 
@@ -109,7 +110,7 @@ Output files are never overwritten. Choose a new path when repeating a run.
 ## Request limits and data handling
 
 The default persona notebook makes 48 requests: 24 with demographics and 24
-without. Interview analysis makes one request per participant/session.
+without. Interview analysis makes one request per interview.
 `MAX_CALLS` / `--max-calls` limits requests, not spending. Live calls send the
 supplied inputs to TypeSafe; use data you have permission to share.
 

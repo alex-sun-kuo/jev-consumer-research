@@ -25,7 +25,7 @@ class InterviewTests(unittest.TestCase):
     def test_only_target_participant_quotes_are_eligible(self):
         for key, question in self.questions.items():
             if key.startswith('evidence_'):
-                self.assertEqual(set(question['criteria']), {'t2', 't5', 'none'})
+                self.assertEqual(set(question['criteria']), {'t2', 't4', 'none'})
         body = interview_fixture(self.state, self.questions)
         answers = validate_answers(body, self.questions)
         evidence = selected_evidence(self.state, answers)
@@ -36,16 +36,17 @@ class InterviewTests(unittest.TestCase):
 
     def test_speaker_labeled_text_and_unknown_speakers(self):
         interview = parse_interview_text('moderator: Why?\np1: I need proof.\nEspecially a leak test.',
-                                        interview_id='one', participants=['p1'])
+                                        interview_id='one', participant='p1')
         self.assertEqual(interview['turns'][1]['text'], 'I need proof.\nEspecially a leak test.')
         self.assertEqual(interview['turns'][1]['role'], 'participant')
         with self.assertRaisesRegex(ValueError, 'Unknown speaker'):
-            parse_interview_text('p2: hello', interview_id='one', participants=['p1'])
+            parse_interview_text('p2: hello', interview_id='one', participant='p1')
 
     def test_duplicate_ids_roles_and_empty_sessions_rejected(self):
         for mutate in (
             lambda s: s['interviews'][0]['turns'].append(s['interviews'][0]['turns'][0]),
-            lambda s: s['interviews'][0]['turns'][4].update(role='moderator'),
+            lambda s: s['interviews'][0]['turns'][3].update(role='moderator'),
+            lambda s: s['interviews'][0]['turns'][3].update(speaker='p2'),
             lambda s: s.update(interviews=[]),
             lambda s: s['interviews'][0].update(turns=[]),
         ):
