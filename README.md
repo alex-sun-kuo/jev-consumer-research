@@ -17,6 +17,20 @@ Both score live against the Jev API and ship with ready-to-run example inputs.
 - `docs/` — [LLM workflow notes](docs/LLM_WORKFLOW_NOTES.md) on methods and sources
 - `tests/` — unit tests plus `fake_jev.py`, a deterministic stand-in for the API
 
+How the pieces fit together:
+
+```mermaid
+flowchart LR
+    personas["Personas + A/B messages<br>(data/study.json or your panel)"] --> run["recipes.run_study"]
+    run --> results["results.jsonl"]
+    results --> reports["recipes.summarize<br>recipes.visualize_results"]
+    transcripts["Interview transcripts"] --> analyze["recipes.analyze_interviews"]
+    analyze --> brief["Research brief with verbatim quotes"]
+    reports --> follow["Follow-up experiments with real people"]
+    brief --> follow
+    follow --> validate["recipes.validate_behavior<br>predictions vs observed outcomes"]
+```
+
 ## Start here
 
 Use Python 3.11+ and install the dependencies:
