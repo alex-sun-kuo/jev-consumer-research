@@ -123,13 +123,30 @@ do not retry automatically.
 - Seaborn charts show model probabilities and per-profile differences.
 - Removing demographics tests the model's sensitivity to the demographic block.
 - Interview quotes are retrieved verbatim from the transcript.
-- `data/validation_example.json` shows the format for scoring predictions
-  against held-out observed outcomes.
 
 Jev returns typed scores directly, avoiding prose generation and rescoring when
 only numbers are needed. LLMs can also produce scores directly; cost and accuracy
 advantages require a matched comparison. See [LLM workflow notes](docs/LLM_WORKFLOW_NOTES.md)
 for documented methods, sources, and research-design guidance.
+
+## Validate against real outcomes
+
+The last step in the loop never calls Jev. `recipes.validate_behavior` takes
+predictions that were frozen before the outcomes existed — for example,
+simulated engage scores mapped to the arms of a real ad test — plus the
+observed 0/1 results (`data/validation_example.json` shows the format), and
+reports:
+
+- **Brier score**: the average squared gap between each predicted probability
+  and what actually happened. 0 is perfect; always guessing 50/50 scores 0.25,
+  and confident misses cost the most.
+- **Baseline comparison**: the same score computed as if you had predicted your
+  historical base rate every time. A positive `improvement_over_baseline` means
+  the simulation told you something the base rate alone didn't.
+- **Calibration bins**: rows grouped by predicted probability, with the average
+  prediction shown next to the observed rate in each group. When they match, a
+  0.4 means the event really happens about 40% of the time; when they don't,
+  trust the ranking of messages more than the raw probabilities.
 
 ## Development
 
