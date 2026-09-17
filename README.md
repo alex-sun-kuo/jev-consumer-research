@@ -51,7 +51,7 @@ environment, so export the key first (`set -a; source .env; set +a`).
 
 Open either notebook and **Restart Kernel and Run All**. Each includes its data
 and helpers, so it also works when copied out of this repo. The persona notebook
-includes a standalone plotting installation command. Flowcharts use Mermaid;
+includes a standalone dependency install command. Flowcharts use Mermaid;
 [JupyterLab 4.1+](https://jupyterlab.readthedocs.io/en/4.1.x/getting_started/changelog.html#diagrams-in-markdown)
 renders them in Markdown cells.
 
