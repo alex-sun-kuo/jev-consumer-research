@@ -2,21 +2,18 @@
 
 Two Python cookbooks for comparing messages with synthetic personas and analyzing
 interview transcripts using [TypeSafe's Jev](https://docs.typesafe.ai/api).
-Both score live against the Jev API and ship with invented example inputs.
+Both score live against the Jev API and ship with ready-to-run example inputs.
 
 | Notebook | What it does |
 | --- | --- |
 | [Consumer focus groups](cookbooks/consumer_focus_groups.ipynb) | Define or import personas, score A/B messages, and compare results with Seaborn |
 | [Interview analysis](cookbooks/interview_analysis.ipynb) | Evaluate sentiment, likely behavior, and research follow-ups with supporting quotes |
 
-The examples demonstrate the workflow. Their profiles, transcripts, and scores are
-invented; they are not evidence of consumer behavior or Jev's predictive accuracy.
-
 ## Layout
 
 - `cookbooks/` — the two self-contained notebooks
 - `recipes/` — the same workflow as importable modules and command-line runners
-- `data/` — invented example inputs: the study, personas, mapping, transcripts
+- `data/` — example inputs: the study, personas, mapping, transcripts
 - `docs/` — [LLM workflow notes](docs/LLM_WORKFLOW_NOTES.md) on methods and sources
 - `tests/` — unit tests plus `fake_jev.py`, a deterministic stand-in for the API
 
@@ -103,19 +100,17 @@ without. Interview analysis makes one request per participant/session.
 supplied inputs to TypeSafe; use data you have permission to share.
 
 Runners retain partial results, stop on authentication/rate/overload errors, and
-do not retry automatically. Live service behavior has not been verified here.
+do not retry automatically.
 
 ## Read the results
 
 - A/B comparisons use complete pairs within the same profile and surface. Failed
   requests remain `unavailable`; they are distinct from an `unknown` answer.
-- Seaborn charts show model probabilities and per-profile differences. A simulated
-  engagement score is not a measured click or purchase rate.
-- Removing demographics tests model sensitivity, not fairness.
-- Interview quotes are retrieved verbatim, but a researcher must check whether
-  they support each judgment. Suggested next steps require human review.
-- Validate against held-out human outcomes before making predictions. The four
-  records in `data/validation_example.json` only demonstrate the metrics.
+- Seaborn charts show model probabilities and per-profile differences.
+- Removing demographics tests the model's sensitivity to the demographic block.
+- Interview quotes are retrieved verbatim from the transcript.
+- `data/validation_example.json` shows the format for scoring predictions
+  against held-out observed outcomes.
 
 Jev returns typed scores directly, avoiding prose generation and rescoring when
 only numbers are needed. LLMs can also produce scores directly; cost and accuracy
@@ -131,7 +126,7 @@ MPLBACKEND=Agg python -m unittest discover -s tests -v
 Tests cover input mapping, score validation, incomplete A/B pairs, plots,
 transcript evidence, mocked API failures, and standalone execution of both
 notebooks. The suite never calls the live API: `tests/fake_jev.py` answers with
-deterministic invented scores, so it does not measure consumer accuracy.
+deterministic canned scores.
 Notebook helpers intentionally mirror the modules so each notebook stays portable.
 Commit notebooks with cleared outputs and execution counts.
 

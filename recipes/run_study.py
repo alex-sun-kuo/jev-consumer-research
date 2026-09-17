@@ -181,7 +181,7 @@ def main():
             stream.flush()
             if row.get("error") in ("http_401", "http_403", "http_429", "http_529"):
                 raise SystemExit("Stopped on auth/rate/overload error; partial output retained. Retry later in a new file.")
-    print(f"Wrote {count} simulated cells to {args.output}; not a human sample or conversion forecast.")
+    print(f"Wrote {count} scored cells to {args.output}.")
 
 
 if __name__ == "__main__":

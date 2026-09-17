@@ -58,7 +58,7 @@ def plot_charts(data):
             f"{data['excluded_pairs']} missing/unavailable pairs excluded",
             fontsize=13,
         )
-        figure.supxlabel("Model scores, not observed consumer rates · Equal weight per complete profile", fontsize=10)
+        figure.supxlabel("Model scores · Equal weight per complete profile", fontsize=10)
         if not data["complete_pairs"]:
             for axis in axes:
                 axis.set_axis_off()

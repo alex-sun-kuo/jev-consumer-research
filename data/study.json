@@ -1,7 +1,7 @@
 {
   "study_id": "fictional-drinkware-pilot",
   "revision": "v2-rich-profiles",
-  "provenance": "All profiles, stimuli, and mock outputs are invented teaching examples, not customer research.",
+  "provenance": "Hand-authored example study.",
   "profiles": [
     {
       "id": "p1",
@@ -49,7 +49,7 @@
       "provenance": {
         "kind": "synthetic_assumption",
         "source": "Hand-authored teaching scenario; demographics and shopping context are explicit assumptions.",
-        "scope": "Every supplied demographic and context field is invented, not inferred from another field",
+        "scope": "All fields supplied directly, none inferred",
         "unknown_fields": []
       }
     },
@@ -99,7 +99,7 @@
       "provenance": {
         "kind": "synthetic_assumption",
         "source": "Hand-authored teaching scenario; demographics and shopping context are explicit assumptions.",
-        "scope": "Every supplied demographic and context field is invented, not inferred from another field",
+        "scope": "All fields supplied directly, none inferred",
         "unknown_fields": []
       }
     },
@@ -149,7 +149,7 @@
       "provenance": {
         "kind": "synthetic_assumption",
         "source": "Hand-authored teaching scenario; demographics and shopping context are explicit assumptions.",
-        "scope": "Every supplied demographic and context field is invented, not inferred from another field",
+        "scope": "All fields supplied directly, none inferred",
         "unknown_fields": []
       }
     },
@@ -199,7 +199,7 @@
       "provenance": {
         "kind": "synthetic_assumption",
         "source": "Hand-authored teaching scenario; demographics and shopping context are explicit assumptions.",
-        "scope": "Every supplied demographic and context field is invented, not inferred from another field",
+        "scope": "All fields supplied directly, none inferred",
         "unknown_fields": [
           "ethnicity"
         ]

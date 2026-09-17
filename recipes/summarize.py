@@ -90,7 +90,6 @@ def comparisons(rows, group_by="age_band"):
 
 def report(rows, group_by, *, include_cells=True):
     out = ["# AI focus-group simulation report", "",
-           "Not real respondents, demographic estimates, causal effects, or conversion forecasts.", "",
            "A positive delta means B received higher simulated immediate-engagement scores.",
            "Each profile has equal scenario weight, not population weight. No significance tests.", "",
            "Groups may contain only one profile; compare needs and budgets before attributing differences to a demographic label.", "",
@@ -105,7 +104,7 @@ def report(rows, group_by, *, include_cells=True):
     if not include_cells:
         return "\n".join(out) + "\n"
     out += ["", "## Per-cell review", "",
-            "Choice labels are simulated hypotheses; Noul values are model yes-scores, not severity.", ""]
+            "Noul values are model yes-scores.", ""]
     for r in sorted(rows, key=lambda x: (x["kind"], x["profile_id"], x["variant"])):
         if r["status"] != "ok":
             out.append(f"- {r['profile_id']} / {r['stimulus_id']}: unavailable")
@@ -135,8 +134,7 @@ def diagnostic_report(rows, group_by="context.purchase_stage"):
     }
     out = ["# Message and decision diagnostics", "",
            f"Grouping: {group_by}. Means use available scenarios only; unavailable counts are separate.", "",
-           "Noul columns are yes-scores; Research, Defer, and Unknown are action-distribution scores.",
-           "These describe model outputs, not observed barriers, funnel stages, or conversion rates.", "",
+           "Noul columns are yes-scores; Research, Defer, and Unknown are action-distribution scores.", "",
            "| Surface | Variant | Group | Available | Unavailable | " + " | ".join(metrics) + " |",
            "| --- | --- | --- | ---: | ---: | " + " | ".join(["---:"] * len(metrics)) + " |"]
     for (kind, variant, group), members in sorted(groups.items()):
@@ -172,8 +170,7 @@ def sensitivity(original, masked):
         else:
             changes.append(abs(a-b))
     return {"complete_cells": len(changes), "unavailable_cells": unavailable,
-            "mean_absolute_score_change": sum(changes)/len(changes) if changes else None,
-            "warning": "Prompt sensitivity only; not evidence of a real demographic effect or fairness."}
+            "mean_absolute_score_change": sum(changes)/len(changes) if changes else None}
 
 
 if __name__ == "__main__":

@@ -191,8 +191,7 @@ def analyze_interviews(study, output, *, model="jev-latest", max_calls=30):
 
 
 def interview_report(rows):
-    out = ['# Interview findings and research follow-ups', '',
-           'Model judgments from transcript evidence; not measured behavior probabilities. Review every suggested quote.', '']
+    out = ['# Interview findings and research follow-ups', '']
     for row in rows:
         label = f"{row['interview_id']} / {row['participant_id']}"
         out += ['## ' + escape(label), '']

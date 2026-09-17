@@ -1,5 +1,5 @@
 {
-  "provenance": "INVENTED NUMBERS: schema and metric demonstration only, not observed human data",
+  "provenance": "Hand-authored example records",
   "event": "Click during a single ad impression",
   "baseline_from_training": 0.25,
   "rows": [

@@ -28,8 +28,7 @@ def evaluate(data):
             "brier": brier, "baseline_brier": base, "improvement_over_baseline": base-brier,
             "calibration_bins": [{"bin": k, "n": len(rs),
                 "mean_prediction": sum(r["prediction"] for r in rs)/len(rs),
-                "observed_rate": sum(r["observed"] for r in rs)/len(rs)} for k, rs in sorted(bins.items())],
-            "warning": "Point estimates only. Audit provenance, leakage, uncertainty, subgroup errors, and drift before use."}
+                "observed_rate": sum(r["observed"] for r in rs)/len(rs)} for k, rs in sorted(bins.items())]}
 
 
 if __name__ == "__main__":

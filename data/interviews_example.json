@@ -1,7 +1,7 @@
 {
   "study_id": "drinkware-interview-demo",
   "revision": "v1",
-  "provenance": "INVENTED interview transcripts for demonstration; not real participant data.",
+  "provenance": "Hand-authored example transcripts.",
   "research_question": "What keeps participants from trying the $39 Loop Bottle, and what should we test next?",
   "behavior_target": "The participant's next shopping action after reviewing this bottle offer",
   "interviews": [
