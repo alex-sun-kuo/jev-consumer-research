@@ -47,6 +47,40 @@ def chart_data(rows, kind="ad"):
 
 
 
+def plot_concept(read):
+    """One stimulus, one series: mean action PMF and engagement per profile."""
+    with sns.axes_style("whitegrid"), sns.plotting_context("notebook"), plt.rc_context({"text.parse_math": False}):
+        height = max(5.5, 2.3 + 0.65 * len(read["profiles"]))
+        figure, axes = plt.subplots(1, 2, figsize=(12, height), layout="constrained")
+        figure.suptitle(f"Concept read · {read['kind']} / {read['stimulus_id']}\n"
+                        f"{read['available']} profiles scored · {read['unavailable']} unavailable", fontsize=13)
+        figure.supxlabel("Model scores · Equal weight per available profile", fontsize=10)
+        if not read["available"]:
+            for axis in axes:
+                axis.set_axis_off()
+            axes[0].text(0.5, 0.5, "No available results to plot", ha="center", transform=axes[0].transAxes)
+            return figure
+        color = sns.color_palette("colorblind", 1)[0]
+        panels = (("Action probabilities (PMF)", list(read["actions"].items()), "Action", "Mean probability"),
+                  ("Engagement by profile", [(profile, engage) for profile, engage, _ in read["profiles"]],
+                   "Profile", "Engagement score"))
+        for axis, (title, values, ylabel, xlabel) in zip(axes, panels):
+            positions = list(range(len(values)))
+            frame = {"row": positions, "score": [value for _, value in values]}
+            sns.barplot(data=frame, x="score", y="row", orient="h", order=positions,
+                        color=color, saturation=1, errorbar=None, ax=axis)
+            axis.set(title=title, xlabel=xlabel, ylabel=ylabel, xlim=(0, 1.1))
+            axis.set_xticks([0, 0.25, 0.5, 0.75, 1])
+            axis.set_yticks(positions, labels=[fill(str(label), width=24) for label, _ in values])
+            axis.grid(axis="y", visible=False)
+            for container in axis.containers:
+                axis.bar_label(container, fmt="%.3f", padding=3, fontsize=9)
+            sns.despine(ax=axis, left=True)
+        mean_engage = sum(engage for _, engage, _ in read["profiles"]) / len(read["profiles"])
+        axes[1].axvline(mean_engage, linestyle="--", linewidth=1, color="0.4")
+        return figure
+
+
 def plot_charts(data):
     """Return a Matplotlib figure; Seaborn plots existing scores without error bars."""
     height = max(5.5, 2.3 + 0.65 * len(data["profiles"]))

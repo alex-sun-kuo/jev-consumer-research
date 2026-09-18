@@ -6,8 +6,12 @@ Both score live against the Jev API and ship with ready-to-run example inputs.
 
 | Notebook | What it does |
 | --- | --- |
+| [Concept read](cookbooks/concept_read.ipynb) | Score one stimulus with a persona panel and read sentiment, actions, and barriers |
 | [Consumer focus groups](cookbooks/consumer_focus_groups.ipynb) | Define or import personas, score A/B messages, and compare results with Seaborn |
 | [Interview analysis](cookbooks/interview_analysis.ipynb) | Evaluate sentiment, likely behavior, and research follow-ups with supporting quotes |
+
+The notebooks form a pipeline: read one concept, compare the A/B variants worth
+iterating, then analyze real interviews.
 
 ## Layout
 
@@ -55,7 +59,8 @@ includes a standalone dependency install command. Flowcharts use Mermaid;
 [JupyterLab 4.1+](https://jupyterlab.readthedocs.io/en/4.1.x/getting_started/changelog.html#diagrams-in-markdown)
 renders them in Markdown cells.
 
-Runs save to fresh `notebook_runs/` or `interview_runs/` directories. The persona
+Runs save to fresh `concept_runs/`, `notebook_runs/`, or `interview_runs/`
+directories. The persona
 notebook exports reports and PNG/SVG charts; the interview notebook exports a
 research brief and the quotes behind its judgments.
 
@@ -91,6 +96,7 @@ mkdir -p outputs
 python -m recipes.run_study --output outputs/results.jsonl
 python -m recipes.summarize outputs/results.jsonl
 python -m recipes.summarize outputs/results.jsonl --group-by context.purchase_stage --diagnostics
+python -m recipes.concept_read outputs/results.jsonl
 python -m recipes.run_study --mask-demographics --output outputs/masked.jsonl
 python -m recipes.summarize outputs/results.jsonl --masked outputs/masked.jsonl
 python -m recipes.analyze_interviews data/interviews_example.json --output outputs/interviews.jsonl
@@ -109,7 +115,8 @@ Output files are never overwritten. Choose a new path when repeating a run.
 
 ## Request limits and data handling
 
-The default persona notebook makes 48 requests: 24 with demographics and 24
+The concept notebook makes one request per profile (four by default). The
+default persona notebook makes 48 requests: 24 with demographics and 24
 without. Interview analysis makes one request per interview.
 `MAX_CALLS` / `--max-calls` limits requests, not spending. Live calls send the
 supplied inputs to TypeSafe; use data you have permission to share.

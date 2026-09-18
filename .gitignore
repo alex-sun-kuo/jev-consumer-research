@@ -3,6 +3,7 @@
 
 # Generated results
 outputs/
+concept_runs/
 notebook_runs/
 interview_runs/
 results.jsonl

@@ -67,10 +67,8 @@ def convert_value(value, kind):
     raise ValueError(f"Unknown field type: {kind}")
 
 
-def adapt_personas(records, mapping, *, source="Python records"):
-    """Mapping dictionaries use destination field names as keys and source paths as values."""
-    if not isinstance(records, list) or not records or not all(isinstance(row, dict) for row in records):
-        raise ValueError("Provide a nonempty list of persona objects")
+def mapped_fields(mapping):
+    """Validate the mapping shape; return {'section.target': source} and its types."""
     if not isinstance(mapping, dict) or not isinstance(mapping.get("id_field"), str) or not mapping["id_field"]:
         raise ValueError("Mapping requires id_field")
     fields = {}
@@ -87,19 +85,28 @@ def adapt_personas(records, mapping, *, source="Python records"):
         raise ValueError("Type declarations must name mapped fields, e.g. context.budget_usd")
     if any(kind not in ("str", "float", "int", "bool") for kind in types.values()):
         raise ValueError("Types must be str, float, int, or bool")
+    return fields, types
+
+
+def field_exists(record, origin):
+    # A column explicitly present but entirely null is still a valid unknown field.
+    if origin in record:
+        return True
+    for part in origin.split("."):
+        if not isinstance(record, dict) or part not in record:
+            return False
+        record = record[part]
+    return True
+
+
+def adapt_personas(records, mapping, *, source="Python records"):
+    """Mapping dictionaries use destination field names as keys and source paths as values."""
+    if not isinstance(records, list) or not records or not all(isinstance(row, dict) for row in records):
+        raise ValueError("Provide a nonempty list of persona objects")
+    fields, types = mapped_fields(mapping)
     for origin in (mapping["id_field"], *fields.values()):
-        if not any(source_value(row, origin) is not None for row in records):
-            # A column explicitly present but entirely null is still a valid unknown field.
-            def exists(row):
-                if origin in row:
-                    return True
-                for part in origin.split("."):
-                    if not isinstance(row, dict) or part not in row:
-                        return False
-                    row = row[part]
-                return True
-            if not any(exists(row) for row in records):
-                raise ValueError(f"Source field not found: {origin}")
+        if not any(field_exists(row, origin) for row in records):
+            raise ValueError(f"Source field not found: {origin}")
     profiles, seen = [], set()
     for index, record in enumerate(records, 1):
         identifier = source_value(record, mapping["id_field"])
